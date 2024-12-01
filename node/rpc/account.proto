@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package rpc.v1;
+
+option go_package = "proto/v1";
+
+service AccountService {
+  rpc AccountBalance(AccountBalanceRequest) returns (AccountBalanceResponse) {}
+  rpc AccountCreate(AccountCreateRequest) returns (AccountCreateResponse) {}
+}
+
+message AccountCreateRequest {
+  string password = 1;
+}
+
+message AccountCreateResponse {
+  string address = 1;
+}
+
+message AccountBalanceRequest {
+  string address = 1;
+}
+
+message AccountBalanceResponse {
+  uint64 balance = 1;
+}
