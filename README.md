@@ -1,1 +1,1 @@
-# blockchain-go
+# Blockchain Go
