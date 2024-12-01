@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package rpc.v1;
+
+option go_package = "proto/v1";
+
+service BlockService {
+  rpc GenesisSync(GenesisSyncRequest) returns (GenesisSyncResponse);
+  rpc BlockSync(BlockSyncRequest) returns (stream BlockSyncResponse);
+  rpc BlockReceive(stream BlockReceiveRequest) returns (BlockReceiveResponse);
+  rpc BlockSearch(BlockSearchRequest) returns (stream BlockSearchResponse);
+}
+
+message GenesisSyncRequest {}
+
+message GenesisSyncResponse {
+  bytes genesis = 1;
+}
+
+message BlockSyncRequest {
+  uint64 number = 1;
+}
+
+message BlockSyncResponse {
+  bytes block = 1;
+}
+
+message BlockReceiveRequest {
+  bytes block = 1;
+}
+
+message BlockReceiveResponse {}
+
+message BlockSearchRequest {
+  uint64 number = 1;
+  string hash = 2;
+  string parent = 3;
+}
+
+message BlockSearchResponse {
+  bytes block = 1;
+}

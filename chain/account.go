@@ -117,15 +117,15 @@ func (a Account) SignTx(tx Tx) (SigTx, error) {
 	return stx, nil
 }
 
-//func (a Account) SignBlock(blk Block) (SigBlock, error) {
-//	hash := blk.Hash().Bytes()
-//	sig, err := ecc.SignBytes(a.prv, hash, ecc.LowerS|ecc.RecID)
-//	if err != nil {
-//		return SigBlock{}, err
-//	}
-//	sblk := NewSigBlock(blk, sig)
-//	return sblk, nil
-//}
+func (a Account) SignBlock(blk Block) (SigBlock, error) {
+	hash := blk.Hash().Bytes()
+	sig, err := ecc.SignBytes(a.privateKey, hash, ecc.LowerS|ecc.RecID)
+	if err != nil {
+		return SigBlock{}, err
+	}
+	sblk := NewSigBlock(blk, sig)
+	return sblk, nil
+}
 
 func (a Account) encodePrivateKey() ([]byte, error) {
 	return json.Marshal(newP256k1PrivateKey(a.privateKey))

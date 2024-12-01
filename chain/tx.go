@@ -31,7 +31,7 @@ func (h Hash) MarshalText() ([]byte, error) {
 	return []byte(hex.EncodeToString(h[:])), nil
 }
 
-func (h *Hash) UnmarshalText(hash []byte) error {
+func (h Hash) UnmarshalText(hash []byte) error {
 	_, err := hex.Decode(h[:], hash)
 	return err
 }

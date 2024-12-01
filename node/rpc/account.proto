@@ -5,8 +5,8 @@ package rpc.v1;
 option go_package = "proto/v1";
 
 service AccountService {
-  rpc AccountBalance(AccountBalanceRequest) returns (AccountBalanceResponse) {}
-  rpc AccountCreate(AccountCreateRequest) returns (AccountCreateResponse) {}
+  rpc AccountBalance(AccountBalanceRequest) returns (AccountBalanceResponse);
+  rpc AccountCreate(AccountCreateRequest) returns (AccountCreateResponse);
 }
 
 message AccountCreateRequest {
