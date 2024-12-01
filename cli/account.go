@@ -54,8 +54,7 @@ func accountCreateCmd(ctx context.Context) *cobra.Command {
 		},
 	}
 
-	cmd.Flags().String("ownerpass", "", "owner password")
-	_ = cmd.MarkFlagRequired("ownerpass")
+	cmd.Flags().String("ownerpass", "password", "owner password")
 	return cmd
 }
 
@@ -95,7 +94,6 @@ func accountBalanceCmd(ctx context.Context) *cobra.Command {
 			return nil
 		},
 	}
-	cmd.Flags().String("account", "", "account address")
-	_ = cmd.MarkFlagRequired("account")
+	cmd.Flags().String("account", "acc", "account address")
 	return cmd
 }

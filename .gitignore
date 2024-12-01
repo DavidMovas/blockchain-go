@@ -8,6 +8,7 @@
 *.so
 *.dylib
 .idea
+.keystorenode
 
 # Test binary, built with `go test -c`
 *.test
